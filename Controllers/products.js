@@ -1,16 +1,16 @@
-import fs from 'fs'
+// import fs from 'fs'
 let Products = [];
 let ReferenceCounter = 0;
 
-const loadProductsJson = ()=>{
-    let rawdata = fs.readFileSync('C:/Users/AYOUB/Desktop/webdev/REST-API-PRODUCTS/product.json');
-    Products = JSON.parse(rawdata);
-    Products.forEach((elt,pos) => {
-        Products[pos] = {reference:++ReferenceCounter,...elt};
-    });
-}
+// const loadProductsJson = ()=>{
+//     let rawdata = fs.readFileSync('C:/Users/AYOUB/Desktop/webdev/REST-API-PRODUCTS/product.json');
+//     Products = JSON.parse(rawdata);
+//     Products.forEach((elt,pos) => {
+//         Products[pos] = {reference:++ReferenceCounter,...elt};
+//     });
+// }
 
-loadProductsJson();
+// loadProductsJson();
 
 export const getAllProducts = (req,res)=>{
     res.send(Products);
