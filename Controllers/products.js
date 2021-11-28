@@ -33,7 +33,7 @@ export const createProduct = (req,res)=>{
 }
 
 export const getProductById = (req,res)=>{
-    let Product = Products.filter((elt,pos)=>elt.id==req.params.id);
+    let Product = Products.filter((elt,pos)=>elt.reference==req.params.reference);
     if(Product.length>0){
         res.send(Product);
         return;
