@@ -33,8 +33,8 @@ export const createProduct = (req,res)=>{
 }
 
 export const getProductById = (req,res)=>{
-    let Product = Products.filter((elt,pos)=>elt.reference==req.params.reference);
-    if(Product.length>0){
+    let Product = Products.find((elt)=>elt.reference==req.params.reference);
+    if(Product){
         res.send(Product);
         return;
     }
