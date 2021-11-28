@@ -4,10 +4,13 @@ let ReferenceCounter;
 
 const loadProductsJson = ()=>{
     let rawdata = fs.readFileSync('./product.json');
-    Products = JSON.parse(rawdata);
+    try{
+        Products = JSON.parse(rawdata);
+    }
+    catch(e){
+        Products = [];
+    }
 }
-
-loadProductsJson();
 
 const updateProductsJson = ()=>{
     fs.writeFile('./product.json',JSON.stringify(Products),function(err, result) {
@@ -16,6 +19,7 @@ const updateProductsJson = ()=>{
 }
 
 export const getAllProducts = (req,res)=>{
+    loadProductsJson();
     res.send(Products);
 }
 
@@ -23,9 +27,9 @@ export const createProduct = (req,res)=>{
     const Product= req.body;
     ReferenceCounter = (Products.length<1)?0:parseInt(Products[Products.length-1].reference);
     Products.push({ reference:++ReferenceCounter,...Product});
-    res.send(Products);
     updateProductsJson();
     loadProductsJson();
+    res.send(Product);
 }
 
 export const getProductById = (req,res)=>{
