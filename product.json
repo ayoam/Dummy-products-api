@@ -1,16 +1,1 @@
-[
-    {
-        "libelle":"value",
-        "prix":"value",
-        "remise":"value",
-        "quantite":"value",
-        "photo":"value"
-    },
-    {
-        "libelle":"value1",
-        "prix":"value1",
-        "remise":"value1",
-        "quantite":"value1",
-        "photo":"value1"
-    }
-]
+[{"reference":2,"libelle":"value","prix":"test1","remise":"test1","quantite":"test1","photo":"test1"},{"reference":3,"libelle":"test1","prix":"test1","remise":"test1","quantite":"test1","photo":"test1"},{"reference":4,"libelle":"test1","prix":"test1","remise":"test1","quantite":"test1","photo":"test1"}]

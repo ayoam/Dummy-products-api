@@ -1,16 +1,19 @@
-// import fs from 'fs'
+import fs from 'fs'
 let Products = [];
-let ReferenceCounter = 0;
+let ReferenceCounter;
 
-// const loadProductsJson = ()=>{
-//     let rawdata = fs.readFileSync('C:/Users/AYOUB/Desktop/webdev/REST-API-PRODUCTS/product.json');
-//     Products = JSON.parse(rawdata);
-//     Products.forEach((elt,pos) => {
-//         Products[pos] = {reference:++ReferenceCounter,...elt};
-//     });
-// }
+const loadProductsJson = ()=>{
+    let rawdata = fs.readFileSync('./product.json');
+    Products = JSON.parse(rawdata);
+}
 
-// loadProductsJson();
+loadProductsJson();
+
+const updateProductsJson = ()=>{
+    fs.writeFile('./product.json',JSON.stringify(Products),function(err, result) {
+        if(err) console.log('error', err);
+    });
+}
 
 export const getAllProducts = (req,res)=>{
     res.send(Products);
@@ -18,9 +21,11 @@ export const getAllProducts = (req,res)=>{
 
 export const createProduct = (req,res)=>{
     const Product= req.body;
+    ReferenceCounter = (Products.length<1)?0:parseInt(Products[Products.length-1].reference);
     Products.push({ reference:++ReferenceCounter,...Product});
     res.send(Products);
-    console.log(Product);
+    updateProductsJson();
+    loadProductsJson();
 }
 
 export const getProductById = (req,res)=>{
@@ -37,6 +42,8 @@ export const deleteProductById  = (req,res)=>{
     Products = Products.filter((elt,pos)=>elt.reference!=req.params.reference);
     if(ProductsCount>Products.length){
         res.send("Product deleted");
+        updateProductsJson();
+        loadProductsJson();
         return;
     }
     res.send("Product not found!");
@@ -53,6 +60,8 @@ export const updateProduct  =(req,res)=>{
         if(quantite) ProductToUpdate.quantite = quantite;
         if(photo) ProductToUpdate.photo = photo;
         res.send("Product updated!");
+        updateProductsJson();
+        loadProductsJson();
         return;
     }
     res.send("Product not found!");
