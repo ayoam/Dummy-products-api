@@ -2,7 +2,7 @@
 
 DummyProductsAPI is a free online REST API that you can use whenever you need dummy products for your e-commerce store. It's awesome for teaching purposes, sample codes, tests and etc.
 
-live demo : http://products-api-v1.herokuapp.com/api/products
+API url : http://products-api-v1.herokuapp.com/api/products
 
 ## How to
 you can fetch data with any kind of methods you know(fetch API, Axios, jquery ajax,...)
