@@ -49,6 +49,17 @@ fetch("https://products-api-v1.herokuapp.com/api/products/2", {
 })
   .then((res) => res.json())
   .then((json) => console.log(json));
+
+/* PS: you can update just needed keys
+
+fetch("https://products-api-v1.herokuapp.com/api/products/2", {
+  method: "PATCH",
+  body: JSON.stringify({
+      "libelle": "test product"
+  }),
+})
+  .then((res) => res.json())
+  .then((json) => console.log(json)); */
 ```
 
 **Deleting a product**
