@@ -7,7 +7,7 @@ fetch("https://products-api-v1.herokuapp.com/api/products/")
   .then((res) => res.json())
   .then((json) => console.log(json));
 ```
-## Get a single product by reference
+## Get a single product by id
 ```
 fetch("https://products-api-v1.herokuapp.com/api/products/1")
   .then((res) => res.json())
@@ -45,7 +45,7 @@ fetch("https://products-api-v1.herokuapp.com/api/products/2", {
   .then((json) => console.log(json));
 ```
 
-## Deleting a product
+## Deleting a product 
 ```
 fetch("https://fakestoreapi.com/products/1", {
   method: "DELETE",
