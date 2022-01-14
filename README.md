@@ -8,20 +8,20 @@ API url : http://products-api-v1.herokuapp.com/api/products
 you can fetch data with any kind of methods you know(fetch API, Axios, jquery ajax,...)
 
 **Get all products**
-```
+```js
 fetch("https://products-api-v1.herokuapp.com/api/products/")
   .then((res) => res.json())
   .then((json) => console.log(json));
 ```
 **Get a single product by id**
-```
+```js
 fetch("https://products-api-v1.herokuapp.com/api/products/1")
   .then((res) => res.json())
   .then((json) => console.log(json));
 ```
 
 **Add new product**
-```
+```js
 fetch("https://products-api-v1.herokuapp.com/api/products/", {
   method: "POST",
   body: JSON.stringify({
@@ -36,7 +36,7 @@ fetch("https://products-api-v1.herokuapp.com/api/products/", {
   .then((json) => console.log(json));
 ```
 **Updating a product**
-```
+```js
 fetch("https://products-api-v1.herokuapp.com/api/products/2", {
   method: "PATCH",
   body: JSON.stringify({
@@ -63,7 +63,7 @@ fetch("https://products-api-v1.herokuapp.com/api/products/2", {
 ```
 
 **Deleting a product**
-```
+```js
 fetch("https://fakestoreapi.com/products/1", {
   method: "DELETE",
 });
