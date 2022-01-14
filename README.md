@@ -101,7 +101,7 @@ fetch("https://products-api-v1.herokuapp.com/api/products/2", {
 
 **Deleting a product**
 ```js
-fetch("https://fakestoreapi.com/products/1", {
+fetch("https://fakestoreapi.com/products/1",{
   method: "DELETE",
 });
 ```
